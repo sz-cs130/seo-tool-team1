@@ -4,7 +4,7 @@
         <title>Shopzilla SEO Tool</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="Analysis of SEO metrics with top Google search results and Shopzilla sites" />
-	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css"/>
         <style>
             *{
                 padding:0;
@@ -49,7 +49,7 @@
                 -moz-box-shadow:0px 0px 5px #444;
                 -webkit-box-shadow:0px 0px 5px #444;
                 box-shadow:0px 0px 5px #444;
-		background:#1783BF url(Shopzilla_Logo.png) no-repeat 422px 77px;
+		background:#1783BF url("${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png") no-repeat 422px 77px;
             }
             .box h2{
 				background-color:#1275AD;

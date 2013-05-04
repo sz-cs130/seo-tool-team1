@@ -1,43 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-<beans>  
-     <bean id="weatherController" 
-           class="org.sonatype.mavenbook.web.WeatherController">
-       <property name="weatherService" ref="weatherService"/>
-       <property name="weatherDAO" ref="weatherDAO"/>
-     </bean>
+	<context:component-scan base-package="com.seo.webapp" />
 
-     <bean id="historyController" 
-           class="org.sonatype.mavenbook.web.HistoryController">
-       <property name="weatherDAO" ref="weatherDAO"/>
-       <property name="locationDAO" ref="locationDAO"/>
-     </bean>
+	<mvc:resources mapping="/resources/**" location="/resources/" /> 
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<bean class = "org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+	<mvc:annotation-driven />
 
-     <!-- you can have more than one handler defined -->
-     <bean id="urlMapping" 
-          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-          <property name="urlMap">
-               <map>
-                    <entry key="/weather.x">
-                         <ref bean="weatherController" />
-                    </entry>
-                    <entry key="/history.x">
-                         <ref bean="historyController" />
-                    </entry>
-               </map>
-          </property>
-     </bean>
-
-
-     <bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-       <property name="resourceLoaderPath" value="/WEB-INF/vm/"/>
-     </bean>
-
-     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-       <property name="cache" value="true"/>
-       <property name="prefix" value=""/>
-       <property name="suffix" value=".vm"/>
-       <property name="exposeSpringMacroHelpers" value="true"/>
-     </bean>
 </beans>
