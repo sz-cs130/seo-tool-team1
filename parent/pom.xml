@@ -35,6 +35,11 @@
             <target>1.6</target>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.tomcat.maven</groupId>
+          <artifactId>tomcat7-maven-plugin</artifactId>
+          <version>2.0</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -90,12 +95,12 @@
         <version>${spring-ws.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.web</groupId>
+        <groupId>org.springframework</groupId>
 	    <artifactId>spring-web</artifactId>
         <version>${spring-web.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.springframework.webmvc</groupId>
+        <groupId>org.springframework</groupId>
         <artifactId>spring-webmvc</artifactId>
         <version>${spring-webmvc.version}</version>
       </dependency>
