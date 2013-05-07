@@ -27,6 +27,17 @@ public class BaseController {
 		return "sample";
  
 	}
+
+	@RequestMapping(value="/test", method = RequestMethod.GET)
+	public String test(ModelMap model) {
+ 
+		model.addAttribute("message", "Test completed successfully.");
+ 
+		//Spring uses InternalResourceViewResolver and return back sample.jsp
+		return "sample";
+ 
+	}
+ 
  
 	@RequestMapping(value="/welcome/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
