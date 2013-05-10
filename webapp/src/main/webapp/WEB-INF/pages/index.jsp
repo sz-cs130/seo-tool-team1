@@ -1,4 +1,6 @@
 <!Doctype html>
+<%@taglib uri="http://www.springframework.org/tags/form"
+prefix="form"%>
 <html>
     <head>
         <title>Shopzilla SEO Tool</title>
@@ -69,11 +71,12 @@
             <h1>SEO Tool</h1>
 			<div class="box">
 				<h2>Search by Keyword</h2>
-                <form id="ui_element" class="sb_wrapper">
+                <form id="ui_element" class="sb_wrapper" action="/seotool-team1-webapp/result" method="post">
                     <p>
 						<span class="sb_down"></span>
 						<input class="sb_input" type="text"/>
 						<input class="sb_search" type="submit" value=""/>
+
 					</p>
 					<ul class="sb_dropdown" style="display:none;">
 						<li class="sb_filter">Filter your search</li>
@@ -84,6 +87,22 @@
                 </form>
             </div>
         </div>
+
+				<h2>Query Information</h2>
+				<form:form method="POST" action="/result">
+					<table>
+					<tr>
+						<td><form:label path="query">Query</form:label></td>
+						<td><form:input path="query" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<input type="submit" value="Submit"/>
+						</td>
+					</tr>
+				</table>
+				</form:form>
+
 		<!-- The JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
         <script type="text/javascript">

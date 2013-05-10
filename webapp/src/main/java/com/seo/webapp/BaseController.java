@@ -12,11 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class BaseController {
 	
 	@RequestMapping(value="/search", method = RequestMethod.GET)
-	public String search(ModelMap model) {
- 
-		model.addAttribute("message", "Maven Web Project + Spring 3 MVC - welcome()");
- 
-		return "index";
+	public ModelAndView search() {
+		//model.addAttribute("message", "Maven Web Project + Spring 3 MVC - welcome()");
+		//return "index";
+		return new ModelAndView("index", "command", new Query());
  
 	}
  
@@ -30,6 +29,13 @@ public class BaseController {
  
 	}
 
+	@RequestMapping(value="/result", method = RequestMethod.POST)
+	public String result(@ModelAttribute("SpringWeb")Query q, ModelMap model) {
+		//model.addAttribute("message", "Results page.");
+		model.addAttribute("query", q.getQuery());
+		return "result";
+	}
+
 	@RequestMapping(value="/student", method = RequestMethod.GET)
 	public ModelAndView student() {
 		return new ModelAndView("student", "command", new Student()); 
@@ -41,7 +47,7 @@ public class BaseController {
 		model.addAttribute("age", student.getAge());
 		model.addAttribute("id", student.getId());
 
-		return "result";
+		return "studentResult";
 	}
 
 	@RequestMapping(value="/test", method = RequestMethod.GET)

@@ -2,24 +2,16 @@
 
 <html>
 <head>
-	<title>Spring MVC Form Handling</title>
+	<title>Search Results</title>
 </head>
 
 <body>
-<h2>Submitted Student Information</h2>
+<h2>Search Results</h2>
 	<table>
 		<tr>
-			<td>Name</td>
-			<td>${name}</td>
+			<td>You searched for:</td>
+			<td>${query}</td>
 		</tr>
-		<tr>
-			<td>Age</td>
-			<td>${age}</td>
-		</tr>
-		<tr>
-			<td>ID</td>
-			<td>${id}</td>
-		</tr>
-</table>
+	</table>
 </body>
 </html>
