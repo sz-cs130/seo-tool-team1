@@ -70,24 +70,24 @@
             <h1>SEO Tool</h1>
 			<div class="box">
 				<h2>Search by Keyword</h2>
-                <form id="ui_element" class="sb_wrapper" action="/result" method="POST">
+                <form:form id="ui_element" class="sb_wrapper" action="/result" method="POST">
                     <p>
 						<span class="sb_down"></span>
-						<input class="sb_input" type="text"/>
-						<input class="sb_search" type="submit" value=""/>
+						<form:input path="query" class="sb_input" type="text"/>
+						<form:input path="query" class="sb_search" type="submit" value=""/>
 
 					</p>
 					<ul class="sb_dropdown" style="display:none;">
 						<li class="sb_filter">Filter your search</li>
-						<li><input type="radio" name="site" value="Retrevo"/>Retrevo</li>
-						<li><input type="radio" name="site" value="Shopzilla"/>Shopzilla</li>
-						<li><input type="radio" name="site" value="Bizrate"/>Bizrate</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Retrevo"/>Retrevo</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Shopzilla"/>Shopzilla</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Bizrate"/>Bizrate</li>
 					</ul>
-                </form>
+                </form:form>
             </div>
         </div>
 
-				<h2>Query Information</h2>
+				<!--<h2>Query Information</h2>
 				<form:form method="POST" action="/result">
 					<table>
 					<tr>
@@ -100,7 +100,7 @@
 						</td>
 					</tr>
 				</table>
-				</form:form>
+				</form:form>-->
 
 		<!-- The JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
