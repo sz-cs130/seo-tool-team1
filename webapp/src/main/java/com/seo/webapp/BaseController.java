@@ -33,6 +33,7 @@ public class BaseController {
 	public String result(@ModelAttribute("SpringWeb")Query q, ModelMap model) {
 		//model.addAttribute("message", "Results page.");
 		model.addAttribute("query", q.getQuery());
+		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		return "result";
 	}
 

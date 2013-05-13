@@ -1,12 +1,11 @@
 <!Doctype html>
-<%@taglib uri="http://www.springframework.org/tags/form"
-prefix="form"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
     <head>
         <title>Shopzilla SEO Tool</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="description" content="Analysis of SEO metrics with top Google search results and Shopzilla sites" />
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css"/>
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css"/>
         <style>
             *{
                 padding:0;
@@ -51,7 +50,7 @@ prefix="form"%>
                 -moz-box-shadow:0px 0px 5px #444;
                 -webkit-box-shadow:0px 0px 5px #444;
                 box-shadow:0px 0px 5px #444;
-		background:#1783BF url("${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png") no-repeat 422px 77px;
+				background:#1783BF url("${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png") no-repeat 422px 77px;
             }
             .box h2{
 				background-color:#1275AD;
@@ -71,24 +70,24 @@ prefix="form"%>
             <h1>SEO Tool</h1>
 			<div class="box">
 				<h2>Search by Keyword</h2>
-                <form id="ui_element" class="sb_wrapper" action="/seotool-team1-webapp/result" method="post">
+                <form:form id="ui_element" class="sb_wrapper" action="/result" method="POST">
                     <p>
 						<span class="sb_down"></span>
-						<input class="sb_input" type="text"/>
-						<input class="sb_search" type="submit" value=""/>
+						<form:input path="query" class="sb_input" type="text"/>
+						<form:input path="query" class="sb_search" type="submit" value=""/>
 
 					</p>
 					<ul class="sb_dropdown" style="display:none;">
 						<li class="sb_filter">Filter your search</li>
-						<li><input type="checkbox"/><label for="all"><strong>All Sites</strong></label></li>
-						<li><input type="checkbox"/><label for="shopzilla">Shopzilla</label></li>
-						<li><input type="checkbox"/><label for="bizrate">Bizrate</label></li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Retrevo"/>Retrevo</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Shopzilla"/>Shopzilla</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="Bizrate"/>Bizrate</li>
 					</ul>
-                </form>
+                </form:form>
             </div>
         </div>
 
-				<h2>Query Information</h2>
+				<!--<h2>Query Information</h2>
 				<form:form method="POST" action="/result">
 					<table>
 					<tr>
@@ -101,7 +100,7 @@ prefix="form"%>
 						</td>
 					</tr>
 				</table>
-				</form:form>
+				</form:form>-->
 
 		<!-- The JavaScript -->
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
@@ -139,11 +138,14 @@ prefix="form"%>
 				});
 				
 				/**
-				* selecting all checkboxes
-				*/
+				* Not using checkboxes
+				
 				$ui.find('.sb_dropdown').find('label[for="all"]').prev().bind('click',function(){
 					$(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
 				});
+
+				*/
+
             });
         </script>	
     </body>

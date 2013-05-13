@@ -11,6 +11,8 @@
 		<tr>
 			<td>You searched for:</td>
 			<td>${query}</td>
+			<td>to compare with:</td>
+			<td>${siteToCompare}</td>
 		</tr>
 	</table>
 </body>
