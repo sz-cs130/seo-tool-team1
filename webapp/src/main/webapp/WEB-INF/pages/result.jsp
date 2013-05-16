@@ -13,6 +13,8 @@
 			<td>${query}</td>
 			<td>to compare with:</td>
 			<td>${siteToCompare}</td>
+			<td>JSON:</td>
+			<td>${json}</td>
 		</tr>
 	</table>
 </body>

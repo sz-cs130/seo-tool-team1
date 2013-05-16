@@ -34,6 +34,13 @@ public class BaseController {
 		//model.addAttribute("message", "Results page.");
 		model.addAttribute("query", q.getQuery());
 		model.addAttribute("siteToCompare", q.getSiteToCompare());
+		try {
+			model.addAttribute("json", q.HTTP_Request());
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.err.println("Could not connect to localhost:5000");
+			System.exit(-1);
+		}
 		return "result";
 	}
 
