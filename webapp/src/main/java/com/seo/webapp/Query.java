@@ -11,10 +11,10 @@ public class Query {
 		URL url           = new URL("http://localhost:5000/");
 		URLConnection uc  = url.openConnection();
 		BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
-		String inputLine = "";
-		String prev = "";
+		String inputLine  = "";
+		String prev       = "";
 		
-		while ( (inputLine = in.readLine()) != null) {
+		while ( (inputLine = in.readLine()) != null ) {
 			System.out.println(inputLine);
 			prev = inputLine;
 		}

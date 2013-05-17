@@ -11,8 +11,14 @@
 		<tr>
 			<td>You searched for:</td>
 			<td>${query}</td>
+		</tr>
+
+		<tr>
 			<td>to compare with:</td>
 			<td>${siteToCompare}</td>
+		</tr>
+
+		<tr>
 			<td>JSON:</td>
 			<td>${json}</td>
 		</tr>
