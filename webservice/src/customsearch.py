@@ -11,11 +11,8 @@ def getCustomSearchResult(query, customSearchID):
     jsonResult = json.load(urllib2.urlopen(customSearchURL))
     return jsonResult
 
-
-
 def getPageTitle(json, index):
     return json["items"][index]["title"]
-
 
 def getPageUrl(json, index):
     return json["items"][index]["link"]
