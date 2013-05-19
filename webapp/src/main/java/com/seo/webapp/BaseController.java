@@ -22,6 +22,8 @@ public class BaseController {
 
 	@RequestMapping(value="/result", method = RequestMethod.POST)
 	public String result(@ModelAttribute("SpringWeb")Query q, ModelMap model) {
+		// Query's m_query always seems to have a ',' (comma) that is appended--strip this. 
+		q.setQuery(q.getQuery().substring(0, q.getQuery().length() - 1));
 		model.addAttribute("query", q.getQuery());
 		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		try {
