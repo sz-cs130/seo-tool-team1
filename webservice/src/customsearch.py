@@ -6,6 +6,7 @@ from urlparse import urlparse
 ignoredDomains = ["amazon.com", "ebay.com", "wikipedia.org"]
 NUM_SITES_TO_COMPARE = 5
 
+
 def getCustomSearchResult(query, customSearchID, startResult):
     apiKey = "AIzaSyDnj-rClZX3lgIvaxjfngLKkdtzLW2cm_Y"
     quotedQuery = urllib.quote(query)
@@ -35,7 +36,7 @@ def getPageDomainNoSubdomain(json, index):
     
 #Input: keyword, a string to search;
 #       analyze*, a boolean which is true if we should analyze the given page
-#Output: A dictionary where the key is the domain without the subdomain, and the value is the url 
+#Output: A dictionary where each entry is a url to be parsed. The key is the domain without the subdomain, and the value is the url.
 def getURLs(keyword, analyzeShopzilla, analyzeBizrate, analyzeRetrevo):
     allSitesID = "017616669739552287748:iyhaybi_-pg"
     shopzillaID = "017616669739552287748:nm7mjo9djsk"
