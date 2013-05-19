@@ -1,12 +1,14 @@
 package com.seo.webapp;
 
 import org.springframework.stereotype.Controller;
+
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
  
 @Controller
 public class BaseController {
@@ -15,6 +17,7 @@ public class BaseController {
 	public ModelAndView search() {
 		//model.addAttribute("message", "Maven Web Project + Spring 3 MVC - welcome()");
 		//return "index";
+		
 		return new ModelAndView("index", "command", new Query());
  
 	}
@@ -36,6 +39,12 @@ public class BaseController {
 		}
 		return "result";
 	}
+	
+	@RequestMapping("/**")
+    public String unmappedRequest( ModelMap model) {
+		model.addAttribute("errMsg", "Failed to find URL mapping of current request." );
+		return "error";
+    }
 
 	@RequestMapping(value="/student", method = RequestMethod.GET)
 	public ModelAndView student() {
@@ -51,7 +60,6 @@ public class BaseController {
 		return "studentResult";
 	}
  
- 
 	@RequestMapping(value="/welcome/{name}", method = RequestMethod.GET)
 	public String welcomeName(@PathVariable String name, ModelMap model) {
  
@@ -59,5 +67,7 @@ public class BaseController {
 		return "sample";
  
 	}
+	
+	
  
 }
