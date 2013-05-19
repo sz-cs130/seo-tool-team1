@@ -1,42 +1,41 @@
 {
-      'domain': {
-	  "content": {
-	    "keyword_pos": 0, 
-	    "num_keyword": 0
-	  }, 
-	  "description": {
-	    "desc_string": "Transform your home with inspiration and instruction from HGTV for your home design, decorating, landscaping and handmade craft project.", 
-	    "keyword_exists": false
-	  }, 
-	  "heading": {
-	    "h1": {
-	      "keyword_in_h1tags": 0, 
-	      "num_h1tags": 0
-	    }, 
-	    "h2": {
-	      "keyword_in_h2tags": 0, 
-	      "num_h2tags": 0
-	    }, 
-	    "h3": {
-	      "keyword_in_h3tags": 0, 
-	      "num_h3tags": 0
-	    }, 
-	    "h4": {
-	      "keyword_in_h4tags": 0, 
-	      "num_h4tags": 0
-	    }, 
-	    "h5": {
-	      "keyword_in_h5tags": 0, 
-	      "num_h5tags": 0
-	    }, 
-	    "h6": {
-	      "keyword_in_h6tags": 0, 
-	      "num_h6tags": 0
-	    }
-	  }, 
-	  "title": {
-	    "keyword_exists": false, 
-	    "title_string": "HGTV - Decorating, Outdoor Rooms, Landscaping Ideas, Kitchen and Bathroom Design"
-	  }
-      }
+  "content": {
+    "keyword_pos": 0, 
+    "num_keyword": 0
+  }, 
+  "description": {
+    "desc_string": "Transform your home with inspiration and instruction from HGTV for your home design, decorating, landscaping and handmade craft project.", 
+    "keyword_exists": false
+  }, 
+  "heading": {
+    "h1": {
+      "keyword_in_h1tags": 0, 
+      "num_h1tags": 0
+    }, 
+    "h2": {
+      "keyword_in_h2tags": 0, 
+      "num_h2tags": 0
+    }, 
+    "h3": {
+      "keyword_in_h3tags": 0, 
+      "num_h3tags": 0
+    }, 
+    "h4": {
+      "keyword_in_h4tags": 0, 
+      "num_h4tags": 0
+    }, 
+    "h5": {
+      "keyword_in_h5tags": 0, 
+      "num_h5tags": 0
+    }, 
+    "h6": {
+      "keyword_in_h6tags": 0, 
+      "num_h6tags": 0
+    }
+  }, 
+  "title": {
+    "keyword_exists": false, 
+    "title_string": "HGTV - Decorating, Outdoor Rooms, Landscaping Ideas, Kitchen and Bathroom Design"
+  }
+  "domain": "ebay"
 }
