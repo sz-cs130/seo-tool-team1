@@ -25,9 +25,12 @@ public class BaseController {
 		model.addAttribute("query", q.getQuery());
 		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		
-		try {
+		try 
+		{
 			model.addAttribute("json", q.HTTP_Request());
-		} catch (Exception e) {
+		} 
+		catch (Exception e) 
+		{
 			e.printStackTrace();
 			System.err.println(Query.LOG_ERR_MSG);
 			model.addAttribute("errMsg", Query.PAGE_ERR_MSG);
