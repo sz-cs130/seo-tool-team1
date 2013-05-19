@@ -38,8 +38,9 @@ public class BaseController {
 			model.addAttribute("json", q.HTTP_Request());
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("Could not connect to localhost:5000");
-			System.exit(-1);
+			System.err.println("Warning!! Could not connect to localhost:5000/*");
+			model.addAttribute("errMsg", "Could not connect to webservice.");
+			return "error";
 		}
 		return "result";
 	}
