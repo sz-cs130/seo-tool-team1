@@ -19,27 +19,19 @@ public class BaseController {
  
 	}
  
-	@RequestMapping(value="/welcome", method = RequestMethod.GET)
-	public String welcome(ModelMap model) {
- 
-		model.addAttribute("message", "Maven Web Project + Spring 3 MVC - welcome()");
- 
-		//Spring uses InternalResourceViewResolver and return back sample.jsp
-		return "sample";
- 
-	}
 
 	@RequestMapping(value="/result", method = RequestMethod.POST)
 	public String result(@ModelAttribute("SpringWeb")Query q, ModelMap model) {
-		//model.addAttribute("message", "Results page.");
+		// Query's m_query always seems to have a ',' (comma) that is appended--strip this. 
+		q.setQuery(q.getQuery().substring(0, q.getQuery().length() - 1));
 		model.addAttribute("query", q.getQuery());
 		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		try {
 			model.addAttribute("json", q.HTTP_Request());
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.err.println("Warning!! Could not connect to localhost:5000/*");
-			model.addAttribute("errMsg", "Could not connect to webservice.");
+			System.err.println(Query.LOG_ERR_MSG);
+			model.addAttribute("errMsg", Query.PAGE_ERR_MSG);
 			return "error";
 		}
 		return "result";
@@ -57,16 +49,6 @@ public class BaseController {
 		model.addAttribute("id", student.getId());
 
 		return "studentResult";
-	}
-
-	@RequestMapping(value="/test", method = RequestMethod.GET)
-	public String test(ModelMap model) {
- 
-		model.addAttribute("message", "Test completed successfully.");
- 
-		//Spring uses InternalResourceViewResolver and return back sample.jsp
-		return "result";
- 
 	}
  
  
