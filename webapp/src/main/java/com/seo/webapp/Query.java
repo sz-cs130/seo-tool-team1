@@ -1,4 +1,5 @@
 package com.seo.webapp;
+import org.json.simple.*;
 
 import java.net.*;
 import java.io.*;
@@ -6,6 +7,8 @@ import java.io.*;
 public class Query {
 	private String m_query;
 	private String m_siteToCompare = "Shopzilla";
+	String s="[0,{\"1\":{\"2\":{\"3\":{\"4\":[5,{\"6\":7}]}}}}]";
+
 	
 	public String HTTP_Request() throws Exception {
 		URL url           = new URL("http://localhost:5000/");
@@ -20,6 +23,9 @@ public class Query {
 		}
 		
 		in.close();
+		Object obj=JSONValue.parse(s);
+	  JSONArray array=(JSONArray)obj;
+
 		return prev;
 	}
 
