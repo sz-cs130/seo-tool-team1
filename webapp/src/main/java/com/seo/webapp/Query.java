@@ -22,7 +22,7 @@ public class Query {
 	 *                                          *
 	 ********************************************/
 	private String m_query;
-	private String m_siteToCompare = "Shopzilla";
+	private String m_siteToCompare = "shopzilla";
 	String s="[0,{\"1\":{\"2\":{\"3\":{\"4\":[5,{\"6\":7}]}}}}]";
 	
 
@@ -38,7 +38,31 @@ public class Query {
 	 * @throws Exception	If connection to webservice cannot be established. 
 	 */
 	public String HTTP_Request() throws Exception {
-		URL url           = new URL(WEBSERVICE_ADDR + m_query + "/" + m_siteToCompare);
+		
+		URI site_uri = new URI(
+					// scheme
+					"http",
+					
+					// userInfo
+					null,
+					
+					// host
+					"localhost",
+					
+					//port
+					5000,
+					
+					// path
+					"/" + m_query + "/" + m_siteToCompare,
+					
+					//query 
+					null,
+					
+					// fragment
+					null
+				);
+		
+		URL url = site_uri.toURL();
 		URLConnection uc  = url.openConnection();
 		BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
 		String inputLine  = "";
