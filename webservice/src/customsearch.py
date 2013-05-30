@@ -48,14 +48,27 @@ def getPageDomainNoSubdomain(json, index):
     return splitDomain[-2] + "." + splitDomain[-1]
 
 #Input: keyword, a string to search;
-#       analyze*, a boolean which is true if we should analyze the given page
+#       szSite, a string indicating which site to analyze. Valid inputs: 
+#       "shopzilla", "retrevo", or "bizrate"
 #Output: A dictionary where each entry is a url to be parsed. The key is the
 #        domain without the subdomain, and the value is the url.
-def getURLs(keyword, analyzeShopzilla, analyzeBizrate, analyzeRetrevo):
+def getURLs(keyword, szSite):
     allSitesID = "017616669739552287748:iyhaybi_-pg"
     shopzillaID = "017616669739552287748:nm7mjo9djsk"
     bizrateID = "017616669739552287748:bzys95juvvg"
     retrevoID = "017616669739552287748:7jid7recwjk"
+
+    analyzeShopzilla = False
+    analyzeBizrate = False
+    analyzeRetrevo = False
+
+    if szSite == "shopzilla":
+        analyzeShopzilla = True
+    elif szSite == "bizrate":
+        analyzeBizrate = True
+    elif szSite == "retrevo":
+        analyzeRetrevo = True
+    
 
     currSearchIndex = 1
     googleJson = getCustomSearchResult(keyword, allSitesID, currSearchIndex)
@@ -117,6 +130,7 @@ def getURLs(keyword, analyzeShopzilla, analyzeBizrate, analyzeRetrevo):
 
     return urlDict
 
+
 def main():
     allSitesID = "017616669739552287748:iyhaybi_-pg"
     shopzillaID = "017616669739552287748:nm7mjo9djsk"
@@ -132,7 +146,7 @@ def main():
     #print getPageDomain(jsonResult, 0)
     #print json.dumps(jsonResult, sort_keys=True, indent=4, separators=(',', ': '))
 
-    print getURLs(searchQuery, True, True, True)
+    print getURLs(searchQuery, "bizrate")
 
     #urls = getURLs(searchQuery, True, True, True)
 
