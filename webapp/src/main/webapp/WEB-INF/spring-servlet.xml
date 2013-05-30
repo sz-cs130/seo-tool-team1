@@ -11,7 +11,7 @@
 
 	<context:component-scan base-package="com.seo.webapp" />
 
-	<mvc:resources mapping="/resources/**" location="/resources/" /> 
+	<mvc:resources mapping="/resources/**" location="/resources/" order="-1"/> 
 	
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -24,10 +24,10 @@ public class BaseController {
 		
 		model.addAttribute("query", q.getQuery());
 		model.addAttribute("siteToCompare", q.getSiteToCompare());
-		
 		try 
 		{
-			model.addAttribute("json", q.HTTP_Request());
+			q.HTTP_Request();
+			//model.addAttribute("json", q.HTTP_Request());
 		} 
 		catch (Exception e) 
 		{
@@ -36,6 +36,8 @@ public class BaseController {
 			model.addAttribute("errMsg", Query.PAGE_ERR_MSG);
 			return "error";
 		}
+
+		model.addAttribute("sites", q.getSites());
 		
 		return "result";
 	}

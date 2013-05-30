@@ -79,9 +79,9 @@
 					</p>
 					<ul class="sb_dropdown" style="display:none;">
 						<li class="sb_filter">Filter your search</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="Retrevo"/>Retrevo</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="Shopzilla"/>Shopzilla</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="Bizrate"/>Bizrate</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="retrevo"/>Retrevo</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="shopzilla"/>Shopzilla</li>
+						<li><form:radiobutton path="siteToCompare" name="site" value="bizrate"/>Bizrate</li>
 					</ul>
                 </form:form>
             </div>
