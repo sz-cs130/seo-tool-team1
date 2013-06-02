@@ -22,12 +22,11 @@ public class BaseController {
 		// Query's m_query always seems to have a ',' (comma) that is appended--strip this. 
 		q.setQuery(q.getQuery().substring(0, q.getQuery().length() - 1));
 		
-		model.addAttribute("query", q.getQuery());
-		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		try 
 		{
 			q.HTTP_Request();
-			//model.addAttribute("json", q.HTTP_Request());
+			q.setSiteArray();
+			q.setRecommendation();
 		} 
 		catch (Exception e) 
 		{
@@ -36,8 +35,11 @@ public class BaseController {
 			model.addAttribute("errMsg", Query.PAGE_ERR_MSG);
 			return "error";
 		}
-
+		// Adds query string, compare string, SiteMetrics array, and Recommendation to results.jsp
+		model.addAttribute("query", q.getQuery());
+		model.addAttribute("siteToCompare", q.getSiteToCompare());
 		model.addAttribute("sites", q.getSites());
+		model.addAttribute("recs", q.getRecommendation());
 		
 		return "result";
 	}
