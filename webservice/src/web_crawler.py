@@ -14,21 +14,10 @@ def html_parse(address):
     try:
         # Open a network object denoted by a URL for reading
         htmlPage = urllib2.urlopen(address)
-    except urllib2.HTTPError, e:
-        print 'HTTPError: ' + str(e.code)
-        return None
-    except urllib2.URLError, e:
-        print 'URLError: ' + str(e.reason)
-        return None
-    except Exception:
-        import traceback
-        print 'Generic Exception: ' + traceback.format_exc()
-        return None
-    try:  
         htmlText = htmlPage.read()
         soup = BeautifulSoup(htmlText)
-    except AttributeError, e:
-        print 'AttributeError: ' + str(e.reason)
+    except Exception:
+        raise
     finally:
         return soup
 
@@ -50,8 +39,7 @@ def web_crawl(address, keyword):
     data = {}
     soup = html_parse(address) # BeautifulSoup object of html page
     if soup == None:
-        print 'Error: Page could not be parsed'
-        return None
+        raise Exception("Could not parse webpage.")
     
     # Title Data
     try:
@@ -85,9 +73,6 @@ def web_crawl(address, keyword):
         for h1 in h1_tags:
             keyword_in_h1tags += len(re.findall(keyword, h1, re.IGNORECASE)) # Number of appearances of keyword in h1 tags
     except Exception:
-        # Trying to think of errors and a better way to handle them
-        import traceback
-        print 'Generic Exception: ' + traceback.format_exc()
         num_h1tags = 0
         keyword_in_h1tags = 0
     finally:
@@ -190,7 +175,7 @@ def web_crawl(address, keyword):
         content_data = {'num_keyword':num_keyword, 'keyword_pos':keyword_position}
         data['content'] = content_data
         
-    return json.dumps(data, sort_keys=True, indent=2) # Return a JSON representation of the data
+    return data # Return the dictionary representation of the data
 
 
 
