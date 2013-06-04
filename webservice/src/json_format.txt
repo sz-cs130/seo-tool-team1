@@ -1,41 +1,124 @@
-{
-  "content": {
-    "keyword_pos": 0, 
-    "num_keyword": 0
-  }, 
-  "description": {
-    "desc_string": "Transform your home with inspiration and instruction from HGTV for your home design, decorating, landscaping and handmade craft project.", 
-    "keyword_exists": false
-  }, 
-  "heading": {
-    "h1": {
-      "keyword_in_h1tags": 0, 
-      "num_h1tags": 0
-    }, 
-    "h2": {
-      "keyword_in_h2tags": 0, 
-      "num_h2tags": 0
-    }, 
-    "h3": {
-      "keyword_in_h3tags": 0, 
-      "num_h3tags": 0
-    }, 
-    "h4": {
-      "keyword_in_h4tags": 0, 
-      "num_h4tags": 0
-    }, 
-    "h5": {
-      "keyword_in_h5tags": 0, 
-      "num_h5tags": 0
-    }, 
-    "h6": {
-      "keyword_in_h6tags": 0, 
-      "num_h6tags": 0
-    }
-  }, 
-  "title": {
-    "keyword_exists": false, 
-    "title_string": "HGTV - Decorating, Outdoor Rooms, Landscaping Ideas, Kitchen and Bathroom Design"
-  }
-  "domain": "ebay"
+{  
+    "Shopzilla":    {      
+	    "content": {        
+	        "keyword_pos": 0         
+	        "num_keyword": 0     
+	    },       
+	    "description": {        
+	        "desc_string": "Hey wuddup",         
+	        "keyword_exists": false      
+	    },       
+        "heading": {        
+            "h1": {          
+                "keyword_in_h1tags": 0,           
+                "num_h1tags": 0        
+            },         
+            "h2": {          
+                "keyword_in_h2tags": 0,           
+                "num_h2tags": 0        
+            },         
+            "h3": {          
+                "keyword_in_h3tags": 0,           
+                "num_h3tags": 0        
+            },         
+            "h4": {          
+                "keyword_in_h4tags": 0,           
+                "num_h4tags": 0       
+            },         
+            "h5": {          
+                "keyword_in_h5tags": 0,           
+                "num_h5tags": 0        
+            },         
+            "h6": {          
+                "keyword_in_h6tags": 0,           
+                "num_h6tags": 0        
+            }      
+        },       
+        "title": {        
+            "keyword_exists": false,         
+            "title_string": "Dudez"      
+        }    
+    },  
+    "Ebay":    {      
+        "content": {        
+            "keyword_pos": 1,         
+            "num_keyword": 1      
+        },       
+        "description": {        
+            "desc_string": "OMG",         
+            "keyword_exists": false      
+        },       
+        "heading": {        
+            "h1": {          
+                "keyword_in_h1tags": 1,           
+                "num_h1tags": 1        
+            },         
+            "h2": {          
+                "keyword_in_h2tags": 1,            
+                "num_h2tags": 1        
+            },         
+            "h3": {          
+                "keyword_in_h3tags": 1,           
+                "num_h3tags": 1        
+            },         
+            "h4": {          
+                "keyword_in_h4tags": 1,           
+                "num_h4tags": 1        
+            },         
+            "h5": {          
+                "keyword_in_h5tags": 1,           
+                "num_h5tags": 1        
+            },         
+            "h6": {          
+                "keyword_in_h6tags": 1,           
+                "num_h6tags": 1       
+            }      
+        },       
+        "title": {        
+            "keyword_exists": false,         
+            "title_string": "Sparta"      
+        }    
+    },  
+    "Amazon":    {      
+        "content": {        
+            "keyword_pos": 2,         
+            "num_keyword": 2      
+        },       
+        "description": {        
+            "desc_string": "Youtube",         
+            "keyword_exists": false      
+        },       
+        "heading": {        
+            "h1": {          
+                "keyword_in_h1tags": 2,           
+                "num_h1tags": 2        
+            },         
+            "h2": {          
+                "keyword_in_h2tags": 2,           
+                "num_h2tags": 2        
+            },         
+            "h3": {          
+                "keyword_in_h3tags": 2,           
+                "num_h3tags": 2        
+            },         
+            "h4": {          
+                "keyword_in_h4tags": 2,           
+                "num_h4tags": 2        
+            },         
+            "h5": {          
+                "keyword_in_h5tags": 2,           
+                "num_h5tags": 2        
+            },         
+            "h6": {          
+                "keyword_in_h6tags": 2,           
+                "num_h6tags": 2        
+            }      
+        },       
+        "title": {        
+            "keyword_exists": false,         
+            "title_string": "Cracked"      
+        }    
+    }  
+    "domain":["Shopzilla","Ebay","Amazon"]
 }
+
