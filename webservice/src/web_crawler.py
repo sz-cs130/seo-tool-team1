@@ -15,7 +15,6 @@ def html_parse(address):
     response = urlopen(address)
     page_source = response.read()
     soup = BeautifulSoup(page_source)
-    print repr(soup)
     return soup
 
 def web_crawl(address, keyword):
