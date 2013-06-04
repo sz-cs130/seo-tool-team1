@@ -2,8 +2,8 @@
 
 # Dependencies and Setup
 from bs4 import BeautifulSoup # Python web parsing tool
-import urllib2 # Python 3: use urlib.request
-import json #JSON construction API for Python
+from urllib2 import urlopen # Python 3: use urlib.request
+from json import dumps #JSON construction API for Python
 import re # Python Regular Expression package
 
 def html_parse(address):
@@ -12,9 +12,10 @@ def html_parse(address):
         Input: web address for site to be parsed
         Output: BeautifulSoup object for easy grabbing of data """
     # Open a network object denoted by a URL for reading
-    htmlPage = urllib2.urlopen(address)
-    htmlText = htmlPage.read()
-    soup = BeautifulSoup(htmlText)
+    response = urlopen(address)
+    page_source = response.read()
+    soup = BeautifulSoup(page_source)
+    print repr(soup)
     return soup
 
 def web_crawl(address, keyword):
@@ -53,7 +54,7 @@ def web_crawl(address, keyword):
     if desc_tag == None:
         desc_string = "No Description"
     else:
-        desc_tag = desc_tag['content']
+        desc_string = desc_tag['content']
     keyword_exists_in_desc = bool(re.search(keyword, desc_string, re.IGNORECASE))
     desc_data = {"desc_string":desc_string, "keyword_exists":keyword_exists_in_desc}
     data['description'] = desc_data
@@ -112,8 +113,12 @@ def web_crawl(address, keyword):
     data['heading'] = heading_data
 
     # Content Data
-    page_content = soup.body.getText()
-    num_keyword = len(re.findall(keyword, page_content, re.IGNORECASE)) # Number of appearances of the keyword
+    try:
+        page_content = soup.body.getText()
+        num_keyword = len(re.findall(keyword, page_content, re.IGNORECASE)) # Number of appearances of the keyword
+    except AttributeError:
+        page_content = "Could Not Parse Body"
+        num_keyword = 0
     if num_keyword == 0:
         keyword_position = 0
     else:   
@@ -123,3 +128,7 @@ def web_crawl(address, keyword):
         
     return data # Return the dictionary representation of the data
 
+if __name__ == '__main__':
+    keyword = 'hdtv'
+    address = 'http://www.shopzilla.com/tv/11520000/products'
+    print dumps(web_crawl(address, keyword),indent=2,sort_keys=True)
