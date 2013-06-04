@@ -5,7 +5,7 @@ from urlparse import urlparse
 
 ignoredDomains = ["amazon.com", "ebay.com", "wikipedia.org"]
 
-NUM_SITES_TO_COMPARE = 5
+NUM_SITES_TO_COMPARE = 3
 SHOPZILLA_DOMAINS = ["shopzilla.com", "retrevo.com", "bizrate.com"]
 
 
