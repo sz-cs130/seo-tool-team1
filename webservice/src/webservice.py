@@ -1,8 +1,8 @@
-import json
 from flask import Flask, request
 from flask.ext.restful import Resource, Api, abort
 from customsearch import getURLs
 from web_crawler import web_crawl
+from json import dumps
 
 app = Flask(__name__)
 api = Api(app)
@@ -17,7 +17,14 @@ class SEOTool(Resource):
         return getCrawlerResult(keyword, site)
 
 def getCrawlerResult(keyword, site):
-    return getURLs(keyword, site)
+    finalDict = {'domain': []}
+    urlDict = getURLs(keyword, site)
+
+    for key,value in urlDict.iteritems():
+        finalDict[key] = web_crawl(value, keyword)
+        finalDict['domain'].append(key)
+
+    return finalDict
 
 api.add_resource(SEOTool, '/<string:keyword>/<string:site>')
 
