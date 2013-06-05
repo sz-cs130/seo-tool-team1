@@ -15,7 +15,7 @@ class SEOTool(Resource):
         if site not in validSites:
             abort(400, message="Cannot analyze the following site: {}".format(site))
 
-        return {keyword: site}
+        return getCrawlerResult(keyword, site)
 
 def getCrawlerResult(keyword, site):
     parse_data = {'domain':[]} # A dictionary of scraped data from specific web pages
