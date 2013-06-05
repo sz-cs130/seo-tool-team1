@@ -14,7 +14,7 @@ class SEOTool(Resource):
         if site not in validSites:
             abort(400, message="Cannot analyze the following site: {}".format(site))
 
-        return getCrawlerResult(keyword, site)
+        return {keyword: site}
 
 def getCrawlerResult(keyword, site):
     return getURLs(keyword, site)
