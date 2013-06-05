@@ -96,25 +96,25 @@ public class Recommendation {
 					m_percentKeywordExistsTitle += 1;
 			}
 		}
-		m_avgKeywordPos /= numOtherSites; 
-		m_avgNumKeyword /= numOtherSites;
+		m_avgKeywordPos = Math.ceil(m_avgKeywordPos / numOtherSites); 
+		m_avgNumKeyword = Math.ceil(m_avgNumKeyword / numOtherSites);
 		
-		m_avgNumH1Tag /= numOtherSites;
-		m_avgNumH2Tag /= numOtherSites;
-		m_avgNumH3Tag /= numOtherSites;
-		m_avgNumH4Tag /= numOtherSites;
-		m_avgNumH5Tag /= numOtherSites;
-		m_avgNumH6Tag /= numOtherSites;
+		m_avgNumH1Tag = Math.ceil(m_avgNumH1Tag / numOtherSites);
+		m_avgNumH2Tag = Math.ceil(m_avgNumH2Tag / numOtherSites);
+		m_avgNumH3Tag = Math.ceil(m_avgNumH3Tag / numOtherSites);
+		m_avgNumH4Tag = Math.ceil(m_avgNumH4Tag / numOtherSites);
+		m_avgNumH5Tag = Math.ceil(m_avgNumH5Tag / numOtherSites);
+		m_avgNumH6Tag = Math.ceil(m_avgNumH6Tag / numOtherSites);
 
-		m_avgKeywordH1Tag /= numOtherSites;
-		m_avgKeywordH2Tag /= numOtherSites;
-		m_avgKeywordH3Tag /= numOtherSites;
-		m_avgKeywordH4Tag /= numOtherSites;
-		m_avgKeywordH5Tag /= numOtherSites;
-		m_avgKeywordH6Tag /= numOtherSites;
+		m_avgKeywordH1Tag = Math.ceil(m_avgKeywordH1Tag / numOtherSites);
+		m_avgKeywordH2Tag = Math.ceil(m_avgKeywordH2Tag / numOtherSites);
+		m_avgKeywordH3Tag = Math.ceil(m_avgKeywordH3Tag / numOtherSites);
+		m_avgKeywordH4Tag = Math.ceil(m_avgKeywordH4Tag / numOtherSites);
+		m_avgKeywordH5Tag = Math.ceil(m_avgKeywordH5Tag / numOtherSites);
+		m_avgKeywordH6Tag = Math.ceil(m_avgKeywordH6Tag / numOtherSites);
 
-		m_percentKeywordExistsDesc /= numOtherSites;
-		m_percentKeywordExistsTitle /= numOtherSites;
+		m_percentKeywordExistsDesc = Math.ceil(m_percentKeywordExistsDesc / numOtherSites);
+		m_percentKeywordExistsTitle = Math.ceil(m_percentKeywordExistsTitle / numOtherSites);
 	}
 
 	// Average keyword position recommendation
