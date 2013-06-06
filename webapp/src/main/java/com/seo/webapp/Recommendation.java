@@ -31,19 +31,13 @@ public class Recommendation {
 	private double m_percentKeywordExistsDesc;
 	private double m_percentKeywordExistsTitle;
 
-	private ArrayList<String> m_possibleSites;
 	// Constructor. Initializes variables
-	public Recommendation(ArrayList<SiteMetrics> sites)
-	{
-		m_possibleSites = new ArrayList<String>();
-		m_possibleSites.add("shopzilla.com");
-		m_possibleSites.add("bizrate.com");
-		m_possibleSites.add("retrevo.com");
-		
+	public Recommendation(ArrayList<SiteMetrics> sites, String siteToCompare)
+	{	
 		m_sites = sites;
 		for(int i = 0; i < m_sites.size(); i++)
 		{
-			if(m_possibleSites.contains(m_sites.get(i).getDomain()))
+			if(m_sites.get(i).getDomain().toLowerCase().contains(siteToCompare))
 				m_compareSite = m_sites.get(i);
 		}
 			

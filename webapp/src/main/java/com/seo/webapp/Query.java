@@ -100,7 +100,7 @@ public class Query {
 	// Throws exception if certain properties are not found
 	public void setRecommendation() throws Exception
 	{
-		m_recommendation = new Recommendation(m_sites);
+		m_recommendation = new Recommendation(m_sites, m_siteToCompare);
 		m_recommendation.calculateDifferenceValues();
 	}
 
