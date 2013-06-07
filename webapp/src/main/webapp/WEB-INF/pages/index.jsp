@@ -1,152 +1,61 @@
 <!Doctype html>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html>
-    <head>
-        <title>Shopzilla SEO Tool</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="description" content="Analysis of SEO metrics with top Google search results and Shopzilla sites" />
-		<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css" type="text/css"/>
-        <style>
-            *{
-                padding:0;
-                margin:0;
-            }
-             body{
-                background:transparent url(http://tympanus.net/codrops/wp-content/themes/codropstheme/images/bg_main.png) repeat scroll left top;
-                font-family:"Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;
 
-            }
-            h1{
-                font-size:180px;
-                line-height:180px;
-                text-transform: uppercase;
-                color:#1275AD;
-                position:absolute;
-                text-shadow:0 1px 1px #45A8DF;
-                top:-25px;
-                left:-20px;
-                white-space: nowrap;
-            }
-            span.reference{
-                position:fixed;
-                left:10px;
-                bottom:10px;
-                font-size:11px;
-            }
-            span.reference a{
-                color:#fff;
-                text-decoration:none;
-                text-transform: uppercase;
-                text-shadow:0 1px 0 #000;
-            }
-            span.reference a:hover{
-                color:#f0f0f0;
-            }
-            .box{
-                margin:129px auto 0 auto;
-                height:430px;
-                width:100%;
-                position:relative;
-                -moz-box-shadow:0px 0px 5px #444;
-                -webkit-box-shadow:0px 0px 5px #444;
-                box-shadow:0px 0px 5px #444;
-				background:#1783BF url("${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png") no-repeat 422px 77px;
-            }
-            .box h2{
-				background-color:#1275AD;
-				border-color:#0E5A85 #0E5A85 #0E5A85;
-				border-style:ridge ridge solid;
-				border-width:1px;
-				color:#FFFFFF;
-				font-size:22px;
-				padding:10px;
-				text-shadow:1px 1px 1px #000000;
-            }
+<head>
+	<title>Shopzilla SEO Tool</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="description" content="Analysis of SEO metrics with top Google search results and Shopzilla sites" />
+	<link rel="shortcut icon" href="http://img01.shopzilla-images.com/s2static/us/sz/4e60ea69/sz2/common/images/shopzilla.ico" />
 
-        </style>
-    </head>
-    <body>
-        <div class="content">
-            <h1>SEO Tool</h1>
-			<div class="box">
-				<h2>Search by Keyword</h2>
-                <form:form id="ui_element" class="sb_wrapper" action="/result" method="POST">
-                    <p>
-						<span class="sb_down"></span>
-						<form:input path="query" class="sb_input" type="text"/>
-						<form:input path="query" class="sb_search" type="submit" value=""/>
+	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" media="screen" />
+</head>
 
-					</p>
-					<ul class="sb_dropdown" style="display:none;">
-						<li class="sb_filter">Filter your search</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="retrevo"/>Retrevo</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="shopzilla"/>Shopzilla</li>
-						<li><form:radiobutton path="siteToCompare" name="site" value="bizrate"/>Bizrate</li>
-					</ul>
-                </form:form>
-            </div>
-        </div>
+<style>
+.content {
+padding:40px auto 0 auto;
+height:100%;
+background-image: linear-gradient(left, rgba(0,23,79,1) 0%, rgba(0,23,79,.95) 5%, rgba(125,185,232,1) 100%);
+background-image: -o-linear-gradient(left, rgba(0,23,79,1) 0%, rgba(0,23,79,0.95) 5%. rgba(125,185,232,1) 100%);
+background-image: -moz-linear-gradient(left, rgba(0,23,160,1) 0%, rgba(0,23,79,0.95) 5%, rgba(125,185,232,1) 100%);
+background-image: -webkit-linear-gradient(left, rgba(0,23,160,1) 0%, rgba(0,23,79,0.95) 5%, rgba(125,185,232,1) 100%);
+background-image: -ms-linear-gradient(left, rgba(0,23,160,1) 0%, rgba(0,23,79,0.95) 5%, rgba(125,185,232,1) 100%);
 
-				<!--<h2>Query Information</h2>
-				<form:form method="POST" action="/result">
-					<table>
-					<tr>
-						<td><form:label path="query">Query</form:label></td>
-						<td><form:input path="query" /></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							<input type="submit" value="Submit"/>
-						</td>
-					</tr>
-				</table>
-				</form:form>-->
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	right bottom,
+	color-stop(0, rgba(0,23,160,1)),
+	color-stop(0.05, rgba(0,23,79,0.95))
+	color-stop(1, rgba(125,185,232,1))
+);
+position:relative;
+color: #FFFFFF;
+}
 
-		<!-- The JavaScript -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(function() {
-				/**
-				* the element
-				*/
-				var $ui 		= $('#ui_element');
-				
-				/**
-				* on focus and on click display the dropdown, 
-				* and change the arrow image
-				*/
-				$ui.find('.sb_input').bind('focus click',function(){
-					$ui.find('.sb_down')
-					   .addClass('sb_up')
-					   .removeClass('sb_down')
-					   .andSelf()
-					   .find('.sb_dropdown')
-					   .show();
-				});
-				
-				/**
-				* on mouse leave hide the dropdown, 
-				* and change the arrow image
-				*/
-				$ui.bind('mouseleave',function(){
-					$ui.find('.sb_up')
-					   .addClass('sb_down')
-					   .removeClass('sb_up')
-					   .andSelf()
-					   .find('.sb_dropdown')
-					   .hide();
-				});
-				
-				/**
-				* Not using checkboxes
-				
-				$ui.find('.sb_dropdown').find('label[for="all"]').prev().bind('click',function(){
-					$(this).parent().siblings().find(':checkbox').attr('checked',this.checked).attr('disabled',this.checked);
-				});
+</style>
 
-				*/
+<body class="content">
+	<div class="container-fluid" style="background: white;">
+		<div class="page-header">
+			<a class="brand"> <img src="//upload.wikimedia.org/wikipedia/en/8/80/Shopzilla_Logo.png"></a>
+			<h1 style="padding-left:40px; color: #2e2e2e;">SEO Tool</h1>
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div style="padding-top:40px; padding-left:40px;">
+		<form:form id="ui_element" action="/result" method="POST">
+			<form:input path="query" type="text" class="input-xxlarge search-query" placeholder="Search by Keyword" />
+			<form:input path="query" type="submit" class="btn btn-warning" value="Analyze" />
+			<ul class="unstyled">
+				<br><li>Chose site to analyze:</li>
+				<li><form:radiobutton path="siteToCompare" name="site" value="shopzilla"/>Shopzilla</li>
+				<li><form:radiobutton path="siteToCompare" name="site" value="retrevo"/>Retrevo</li>
+				<li><form:radiobutton path="siteToCompare" name="site" value="bizrate"/>Bizrate</li>
+			</ul>
+		</form:form>
+		</div>
+	</div>
 
-            });
-        </script>	
-    </body>
+</body>
 </html>
