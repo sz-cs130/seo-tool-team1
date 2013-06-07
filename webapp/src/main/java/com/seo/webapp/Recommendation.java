@@ -33,14 +33,14 @@ public class Recommendation {
 
 	// Constructor. Initializes variables
 	public Recommendation(ArrayList<SiteMetrics> sites, String siteToCompare)
-	{
+	{	
 		m_sites = sites;
 		for(int i = 0; i < m_sites.size(); i++)
 		{
-			if(m_sites.get(i).getDomain().equalsIgnoreCase(siteToCompare))
+			if(m_sites.get(i).getDomain().toLowerCase().contains(siteToCompare))
 				m_compareSite = m_sites.get(i);
 		}
-		
+			
 		m_avgKeywordPos = 0;
 		m_avgNumKeyword = 0;
 		
