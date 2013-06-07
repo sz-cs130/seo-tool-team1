@@ -208,7 +208,7 @@
 	<div class="container-fluid">
 		<div class="page-header">
 			<a class="brand"> <img src="${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png"></a>
-			<h1>SEO Tool Analysis Results<small> Based on kewyord: ${query}</small></h1>
+			<h1>SEO Tool Analysis Results<small> Based on keyword: ${query}</small></h1>
 		</div>
 	</div>
 	<div class="container-fluid">
