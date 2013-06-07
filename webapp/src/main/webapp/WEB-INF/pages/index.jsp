@@ -38,7 +38,7 @@ color: #FFFFFF;
 <body class="content">
 	<div class="container-fluid" style="background: white;">
 		<div class="page-header">
-			<a class="brand"> <img src="//upload.wikimedia.org/wikipedia/en/8/80/Shopzilla_Logo.png"></a>
+			<a class="brand"> <img src="${pageContext.request.contextPath}/resources/images/Shopzilla_Logo.png"></a>
 			<h1 style="padding-left:40px; color: #2e2e2e;">SEO Tool</h1>
 		</div>
 	</div>
@@ -48,7 +48,7 @@ color: #FFFFFF;
 			<form:input path="query" type="text" class="input-xxlarge search-query" placeholder="Search by Keyword" />
 			<form:input path="query" type="submit" class="btn btn-warning" value="Analyze" />
 			<ul class="unstyled">
-				<br><li>Chose site to analyze:</li>
+				<br><li>Coose site to analyze:</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="shopzilla"/>Shopzilla</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="retrevo"/>Retrevo</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="bizrate"/>Bizrate</li>
