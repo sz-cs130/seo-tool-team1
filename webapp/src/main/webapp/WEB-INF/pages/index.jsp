@@ -48,7 +48,7 @@ color: #FFFFFF;
 			<form:input path="query" type="text" class="input-xxlarge search-query" placeholder="Search by Keyword" />
 			<form:input path="query" type="submit" class="btn btn-warning" value="Analyze" />
 			<ul class="unstyled">
-				<br><li>Coose site to analyze:</li>
+				<br><li>Choose site to analyze:</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="shopzilla"/>Shopzilla</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="retrevo"/>Retrevo</li>
 				<li><form:radiobutton path="siteToCompare" name="site" value="bizrate"/>Bizrate</li>
